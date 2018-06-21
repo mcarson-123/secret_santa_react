@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { colors } from '../../../Styles/colors'
-import { padding } from '../../../Styles/padding'
+import { spacing } from '../../../Styles/spacing'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -13,5 +13,5 @@ export const StyledPanel = styled.div`
   border-radius: 10px;
   width: 600px;
 
-  padding: ${ props => props.large ? padding.large : padding.small }
+  padding: ${ props => props.large ? spacing.large : spacing.small }
 `;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { padding } from '../../../../Styles/padding'
+import { spacing } from '../../../../Styles/spacing'
 
 export const StyledHeading = styled.div`
   font-size: 32px;
@@ -8,5 +8,5 @@ export const StyledHeading = styled.div`
   // font-family: 'Cormorant Unicase', serif;
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: bold;
-  padding-bottom: ${ padding.small };
+  padding-bottom: ${ spacing.small };
 `;
