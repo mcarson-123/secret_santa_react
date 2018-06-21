@@ -1,7 +1,14 @@
 import styled from 'styled-components';
 
 import { colors } from '../../Styles/colors'
-import { padding } from '../../Styles/padding'
+import { spacing } from '../../Styles/spacing'
+
+
+export const PanelGroup = styled.div`
+  > *:not(:first-child) {
+    padding-top: 20px;
+  }
+`;
 
 export const StyledInput = styled.input`
   border: 1px solid ${ colors.grey }
@@ -10,48 +17,25 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledForm = styled.div`
-  padding-top: ${ padding.medium };
-  padding-bottom: ${ padding.medium };
+  padding-top: ${ spacing.medium };
+  padding-bottom: ${ spacing.medium };
 `;
 
 export const StyledElement = styled.div`
-  padding-top: ${ padding.medium };
+  padding-top: ${ spacing.medium };
 `;
 
 export const StyledLabel = styled.label`
   display: block;
-  padding-bottom: ${ padding.small };
+  padding-bottom: ${ spacing.small };
 `;
 
-export const RadioInput = styled.input`
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  display: none;
-`;
-
-export const RadioContents = styled.div`
+export const SubmitButton = styled.button`
+  margin-top: ${ spacing.large };
+  float: right;
+  padding: ${ spacing.small };
+  width: 100px;
   border: 1px solid ${ colors.grey }
   border-radius: 4px;
-
-  text-align: center;
-  padding: ${ padding.xsmall };
-
-  ${RadioInput}:checked + & {
-    background: ${ colors.grey };
-  }
-`;
-
-export const StyledRadioInputs = styled.div`
-  display: flex;
-`;
-
-export const RadioLabel = styled.label`
-  width: 60px;
-
-  & + & {
-    padding-left: ${padding.medium};
-  }
+  background-color: ${ colors.lightLightGrey }
 `;
