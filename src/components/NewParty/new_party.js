@@ -10,6 +10,7 @@ import SubHeading from '../Base/Text/SubHeading';
 import Label from '../Base/Text/Label';
 import Body from '../Base/Text/Body';
 import RadioGroup from '../Base/Inputs/RadioGroup';
+import TextGroup from '../Base/Inputs/TextGroup';
 
 import {
   PanelGroup,
@@ -30,10 +31,23 @@ class NewParty extends Component {
   onGetStartedFormSubmit(event) {
     event.preventDefault();
 
-    // this.props.createParty();
+    this.props.createParty();
 
     const element = document.getElementById('your-info')
-    window.scrollTo({top: element.getBoundingClientRect().top, behavior: "smooth"})
+    const elementTop = element.getBoundingClientRect().top;
+    const windowOffset = window.pageYOffset;
+    window.scrollTo({top: elementTop + windowOffset, behavior: "smooth"})
+  }
+
+  onEnterInfoFormSubmit(event) {
+    event.preventDefault();
+
+    // update party
+
+    const element = document.getElementById('guests')
+    const elementTop = element.getBoundingClientRect().top;
+    const windowOffset = window.pageYOffset;
+    window.scrollTo({top: elementTop + windowOffset, behavior: "smooth"})
   }
 
   render() {
@@ -82,17 +96,17 @@ class NewParty extends Component {
             <SubHeading>
               You'll be added as a guest and the party host.
               Once the guest list is made and submitted, you will
-              be able to view the pairings if you wish
+              be able to view the pairings if you wish.
             </SubHeading>
             <StyledForm>
-              <form onSubmit={() => {}}>
+              <form onSubmit={this.onEnterInfoFormSubmit}>
                 <StyledElement>
-                  <StyledLabel><Label>Name</Label></StyledLabel>
-                  <StyledInput name='name' type='text' />
-                </StyledElement>
-                <StyledElement>
-                  <StyledLabel><Label>Email</Label></StyledLabel>
-                  <StyledInput name='email' type='text' />
+                  <TextGroup
+                    inputs={[
+                      { label: 'name', name: 'name' },
+                      { label: 'email', name: 'email' },
+                    ]}
+                  />
                 </StyledElement>
                 <SubmitButton type='submit'><Body>Next</Body></SubmitButton>
               </form>
@@ -100,28 +114,44 @@ class NewParty extends Component {
           </Panel>
         </div>
         <Panel>
+          <div id='guests'>
             <Heading>
-              Enter Your Information
+              Who's Invited?
             </Heading>
             <SubHeading>
-              You'll be added as a guest and the party host.
-              Once the guest list is made and submitted, you will
-              be able to view the pairings if you wish
+              Guests will receive an email letting them know who to buy for.
             </SubHeading>
             <StyledForm>
               <form onSubmit={() => {}}>
                 <StyledElement>
-                  <StyledLabel><Label>Name</Label></StyledLabel>
-                  <StyledInput name='name' type='text' />
+                  <TextGroup
+                    inputs={[
+                      { label: 'name', name: 'name' },
+                      { label: 'email', name: 'email' },
+                    ]}
+                  />
                 </StyledElement>
                 <StyledElement>
-                  <StyledLabel><Label>Email</Label></StyledLabel>
-                  <StyledInput name='email' type='text' />
+                  <TextGroup
+                    inputs={[
+                      { name: 'name' },
+                      { name: 'email' },
+                    ]}
+                  />
+                </StyledElement>
+                <StyledElement>
+                  <TextGroup
+                    inputs={[
+                      { name: 'name' },
+                      { name: 'email' },
+                    ]}
+                  />
                 </StyledElement>
                 <SubmitButton type='submit'><Body>Next</Body></SubmitButton>
               </form>
             </StyledForm>
-          </Panel>
+          </div>
+        </Panel>
       </PanelGroup>
     );
   }

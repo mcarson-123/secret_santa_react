@@ -13,7 +13,9 @@ export const PanelGroup = styled.div`
 export const StyledInput = styled.input`
   border: 1px solid ${ colors.grey }
   width: 100%
+  height: 24px;
   border-radius: 4px;
+  font-size: 14px;
 `;
 
 export const StyledForm = styled.div`
